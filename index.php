@@ -33,7 +33,7 @@
           <!--Swiper-->
     <div class="swiper-container swiper-slider" data-loop="true" data-autoplay="true" data-height="100vh" data-dragable="false" data-min-height="480px">
       <div class="swiper-wrapper text-center">
-        <div class="swiper-slide" id="page-loader" data-slide-bg="images/sliders/slider1.jpeg" data-preview-bg="images/sliders/slider1.jpeg">
+        <div class="swiper-slide" id="page-loader" data-slide-bg="images/sliders/slider6.jpeg" data-preview-bg="images/sliders/slider6.jpeg">
           <div class="swiper-caption swiper-parallax">
             <div class="swiper-slide-caption">
               <div class="shell">
@@ -53,30 +53,27 @@
             </div>
           </div>
         </div>
-        <div class="swiper-slide" data-preview-bg="video/intro-video/intro-video-lg.jpg">
-                  <div class="bg-vide" data-vide-bg="video/intro-video/intro-video-lg" data-vide-options="posterType: jpg">
-                    <div class="swiper-caption swiper-parallax">
-                      <div class="swiper-slide-caption">
-                        <div class="shell">
-                          <div class="range range-lg-center">
-                            <div class="cell-lg-12">
-                              <h1><span class="big text-uppercase" data-caption-animate="fadeIn" data-caption-delay="700">Built as a framework</span></h1>
-                            </div>
-                            <div class="cell-lg-10 offset-top-30">
-                              <h4 class="hidden reveal-sm-block text-light" data-caption-animate="fadeIn" data-caption-delay="900">
-                                Intense was designed as extended version of bootstrap, built as a complex
-                                and flexible solution with a dozen of completely new
-                                utilities, components and plugins.
-                              </h4>
-                              <div class="group group-xl offset-top-20 offset-xs-top-50"><a class="btn btn-icon btn-icon-left btn-default btn-lg btn-anis-effect" href="ui-kit.html" data-caption-animate="fadeIn" data-caption-delay="1200"><span class="btn-text">See it in action</span></a></div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+        <div class="swiper-slide" data-slide-bg="images/sliders/slider7.jpg" data-preview-bg="images/sliders/slider7.jpg">
+          <div class="swiper-caption swiper-parallax">
+            <div class="swiper-slide-caption">
+              <div class="shell">
+                <div class="range range-lg-center">
+                  <div class="cell-lg-12">
+                    <h1><span class="big text-uppercase" data-caption-animate="fadeIn" data-caption-delay="700">Kreditne točke Zdravniške zbornice Slovenije</span></h1>
                   </div>
+                  <div class="cell-lg-10 offset-top-30">
+                    <h4 class="hidden reveal-sm-block text-light offset-bottom-0" data-caption-animate="fadeIn" data-caption-delay="900">
+                      Beautiful and clean designs are optimized for all screen sizes
+                      and types. Taste a new meaning of Retina Ready.
+                    </h4>
+                    <div class="group group-xl offset-top-20 offset-xs-top-50"><a class="btn btn-icon btn-icon-left btn-primary btn-lg btn-anis-effect" href="//www.templatemonster.com/intense-multipurpose-html-template.html?utm_source=livedemo&amp;utm_medium=themebutton&amp;utm_campaign=intense" data-caption-animate="fadeIn" data-caption-delay="1200"><span class="btn-text">Preberi več</span></a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="swiper-slide" data-slide-bg="images/sliders/slider2.jpeg" data-preview-bg="images/sliders/slider2.jpeg">
+        <div class="swiper-slide" data-slide-bg="images/sliders/slider8.jpg" data-preview-bg="images/sliders/slider8.jpg">
           <div class="swiper-caption swiper-parallax">
             <div class="swiper-slide-caption">
               <div class="shell">
