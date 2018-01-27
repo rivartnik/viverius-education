@@ -63,7 +63,7 @@
                   </div>
                   <div class="cell-lg-10 offset-top-30">
                     <h4 class="hidden reveal-sm-block text-light offset-bottom-0" data-caption-animate="fadeIn" data-caption-delay="900">
-                      Naš najpopularnejši tečaj ima razpisane nove tečaje!
+                      Naš najpopularnejši tečaj ima razpisane nove termine!
                     </h4>
                     <div class="group group-xl offset-top-20 offset-xs-top-50"><a class="btn btn-icon btn-icon-left btn-primary btn-lg btn-anis-effect" href="//www.templatemonster.com/intense-multipurpose-html-template.html?utm_source=livedemo&amp;utm_medium=themebutton&amp;utm_campaign=intense" data-caption-animate="fadeIn" data-caption-delay="1200"><span class="btn-text">Preveri tečaje</span></a></div>
                   </div>
@@ -293,7 +293,7 @@
         <div class="shell">
           <h2 class="text-bold">Mnenja naših tečajnikov</h2>
           <div class="range range-xs-center offset-md-top-30 offset-top-60">
-            <div class="cell-sm-8 cell-md-4 wow fadeInLeft" data-wow-delay="0.3s">
+            <div class="cell-sm-8 cell-md-4 wow fadeInLeft" data-wow-delay="0.1s">
               <blockquote class="quote quote-classic quote-outboxed">
                 <div class="quote-body">
                   <p class="text-darker">
@@ -310,7 +310,7 @@
                 </div>
               </blockquote>
             </div>
-            <div class="cell-sm-8 cell-md-4 offset-top-60 offset-md-top-0 wow fadeInLeft" data-wow-delay="0.5s">
+            <div class="cell-sm-8 cell-md-4 offset-top-60 offset-md-top-0 wow fadeInLeft" data-wow-delay="0.3s">
               <blockquote class="quote quote-classic quote-outboxed">
                 <div class="quote-body">
                   <p class="text-darker">
@@ -327,7 +327,7 @@
                 </div>
               </blockquote>
             </div>
-            <div class="cell-sm-8 cell-md-4 offset-top-60 offset-md-top-0 wow fadeInLeft" data-wow-delay="0.7s">
+            <div class="cell-sm-8 cell-md-4 offset-top-60 offset-md-top-0 wow fadeInLeft" data-wow-delay="0.5s">
               <blockquote class="quote quote-classic quote-outboxed">
                 <div class="quote-body">
                   <p class="text-darker">
