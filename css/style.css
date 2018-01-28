@@ -29083,7 +29083,7 @@ textarea.form-control {
 }
 
 .toggle-custom:checked + .toggle-custom-dummy {
-	background-color: #42b574;
+	background-color: #dd6a2c;
 }
 
 .toggle-custom:checked + .toggle-custom-dummy:after {
@@ -44552,7 +44552,7 @@ a.pswp__share--download:hover {
 }
 
 .select2-container--bootstrap .select2-results__option--highlighted[aria-selected] {
-	background-color: #42b574;
+	background-color: #026db5;
 	color: #fff;
 }
 

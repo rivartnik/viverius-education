@@ -53,7 +53,7 @@
               <div class="range range-xs-center text-sm-left offset-top-50">
                 <div class="cell-xs-10 cell-sm-8 cell-md-8 cell-lg-5 cell-xl-4">
                   <!-- RD Mailform-->
-                  <form class="rd-mailform text-left" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+                  <form class="rd-mailform text-left" data-form-output="form-output-global" data-form-type="contact" method="post" action="phpFormFiles/email.php">
                     <div class="range">
                       <div class="cell-lg-6">
                         <div class="form-group">
@@ -63,8 +63,8 @@
                       </div>
                       <div class="cell-lg-6 offset-top-20 offset-lg-top-0">
                         <div class="form-group">
-                          <label class="form-label" for="contact-me-phone">Priimek</label>
-                          <input class="form-control" id="contact-me-phone" type="text" name="phone" data-constraints="@Required">
+                          <label class="form-label" for="contact-me-name">Priimek</label>
+                          <input class="form-control" id="contact-me-name" type="text" name="surname" data-constraints="@Required">
                         </div>
                       </div>
                       <div class="cell-lg-12 offset-top-20 offset-lg-top-30">

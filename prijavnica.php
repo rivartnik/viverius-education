@@ -16,7 +16,42 @@
 		<!--[if lt IE 10]>
     <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
     <script src="js/html5shiv.min.js"></script>
-		<![endif]-->
+    <![endif]-->
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script language="javascript"> 
+        $(document).ready(function () {
+          $('#okpswitch').change(function () {
+              if (!this.checked) 
+              //  ^
+                 $('#selectOKP').fadeOut('slow');
+              else 
+                  $('#selectOKP').fadeIn('slow');
+          });
+      });
+      </script>
+        <script language="javascript"> 
+        $(document).ready(function () {
+          $('#opsswitch').change(function () {
+              if (!this.checked) 
+              //  ^
+                 $('#selectOPS').fadeOut('slow');
+              else 
+                  $('#selectOPS').fadeIn('slow');
+          });
+      });
+      </script>
+        <script language="javascript"> 
+        $(document).ready(function () {
+          $('#odsswitch').change(function () {
+              if (!this.checked) 
+              //  ^
+                 $('#selectODS').fadeOut('slow');
+              else 
+                  $('#selectODS').fadeIn('slow');
+          });
+      });
+      </script>
   </head>
   <body>
     <!-- Page-->
@@ -43,6 +78,64 @@
       </section>
       <!-- Page Content-->
       <main class="page-content section-top-20 section-sm-top-50">
+      <section>
+          <div class="shell">
+            <div class="range range-sm-center">
+              <div class="cell-sm-12 cell-md-12">
+                <div class="form-group">
+                  <h5>Prijavljam se na: (ustrezno označi)</h5>
+                  <label class="toggle-inline">
+                    <input class="toggle-custom" id="okpswitch" name="input-group-toggle" value="toggle-1" type="checkbox" checked>Online klinični primeri
+                  </label>
+                  <label class="toggle-inline">
+                    <input class="toggle-custom" id="opsswitch" name="input-group-toggle1" value="toggle-2" type="checkbox">Online priprave na strokovni izpit
+                  </label>
+                  <label class="toggle-inline">
+                    <input class="toggle-custom" id="odsswitch" name="input-group-toggle1" value="toggle-3" type="checkbox">Online delavnice za študente medicine
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="shell">
+            <hr class="divider divider-sm bg-mantis">
+            <div class="range range-sm-center">
+              <div class="cell-sm-4 cell-md-4">
+                <div class="form-group">
+                  <div style="display: block" id="selectOKP">
+                  <select class="form-control select-filter" data-placeholder="Online klinični primeri" data-minimum-results-for-search="Infinity">
+                      <option value="" selected="selected">Online klinični primeri </option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                  </select>
+                  </div>
+                  <div style="display: none" id="selectOPS">
+                  <select class="form-control select-filter" data-placeholder="Online priprave na strokovni izpit" data-minimum-results-for-search="Infinity">
+                    <option value="" selected="selected">Online priprave na strokovni izpit </option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+                  </div>
+                  <div style="display: none" id="selectODS">
+                    <select class="form-control select-filter" data-placeholder="Online delavnice za študente medicine" data-minimum-results-for-search="Infinity">
+                    <option value="" selected="selected">Online delavnice za študente medicine</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       <section class="section-20 section-sm-50">
           <div class="shell">
             <div class="range range-xs-center">
@@ -50,13 +143,20 @@
                 <!-- RD Mailform-->
                 <form class="rd-mailform text-left" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
                   <div class="range">
+                    
                     <div class="cell-lg-6">
                       <div class="form-group">
-                        <label class="form-label form-label-outside" for="make-appointment-name">Name:</label>
+                        <label class="form-label form-label-outside" for="make-appointment-name">Ime:</label>
                         <input class="form-control" id="make-appointment-name" type="text" name="name" data-constraints="@Required">
                       </div>
                     </div>
-                    <div class="cell-lg-6 offset-top-20 offset-lg-top-0">
+                    <div class="cell-lg-6">
+                      <div class="form-group">
+                        <label class="form-label form-label-outside" for="make-appointment-name">Priimek:</label>
+                        <input class="form-control" id="make-appointment-name" type="text" name="surname" data-constraints="@Required">
+                      </div>
+                    </div>
+                    <div class="cell-lg-6 offset-top-20 ">
                       <div class="form-group">
                         <label class="form-label form-label-outside" for="make-appointment-email">Email:</label>
                         <input class="form-control" id="make-appointment-email" type="text" name="email" data-constraints="@Required @Email">
@@ -64,30 +164,15 @@
                     </div>
                     <div class="cell-lg-6 offset-top-20">
                       <div class="form-group">
-                        <label class="form-label form-label-outside" for="make-appointment-date">Date:</label>
-                        <input class="form-control" id="make-appointment-date" type="text" name="date" data-constraints="@Required" data-time-picker="date">
-                      </div>
-                    </div>
-                    <div class="cell-lg-6 offset-top-20">
-                      <div class="range offset-top-0">
-                        <div class="cell-xs-6">
-                          <div class="form-group"> 
-                            <label class="form-label form-label-outside" for="make-appointment-time-start">Required Time Interval Start:</label>
-                            <input class="form-control" id="make-appointment-time-start" type="text" name="time-start" data-constraints="@Required" data-time-picker="time">
-                          </div>
-                        </div>
-                        <div class="cell-xs-6">
-                          <div class="form-group">
-                            <label class="form-label form-label-outside" for="make-appointment-time-end">Required Time Interval End:</label>
-                            <input class="form-control" id="make-appointment-time-end" type="text" name="tim-end" data-constraints="@Required" data-time-picker="time">
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="cell-lg-12 offset-top-20">
-                      <div class="form-group">
-                        <label class="form-label form-label-outside" for="make-appointment-message">Message:</label>
-                        <textarea class="form-control" id="make-appointment-message" name="message" data-constraints="@Required" style="height: 150px;"></textarea>
+                      <label class="form-label form-label-outside" for="make-appointment-name">Status / izobrazba</label>
+                        <select class="form-control select-filter" data-minimum-results-for-search="Infinity" data-constraints="@Required @Selected">  
+                          <option value="" selected="selected"></option>
+                          <option>Brezposeln zdravnik</option>
+                          <option>Študent</option>
+                          <option>Pripravnik</option>
+                          <option>Specializant</option>
+                          <option>Sprecialist</option>
+                        </select>
                       </div>
                     </div>
                   </div>
@@ -109,5 +194,6 @@
     <!-- JavaScript-->
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
+   
   </body>
 </html>

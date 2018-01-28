@@ -49,7 +49,7 @@
                       <!-- Text Dropcaps-->
           <div class="container">
             <p class="offset-top-20 dropcap dropcap-dark text-left">
-            Online klinični primeri je spletno izobraževanje v obliki interaktivnih delavnic. Tema delavnic je obravnava raznovrstnih nujnih in nenujnih kliničnih primerov iz vsakdanje prakse. Izbrani primeri so resnične zgodbe s pričakovanimi in nepričakovanimi razpleti, ki pri udeležencih spodbudijo razmišljanje, aktivno sodelovanje in razpravo.
+            Online klinični primeri je spletno izobraževanje v obliki interaktivnih delavnic. Tema delavnic je obravnava raznovrstnih nujnih in nenujnih kliničnih primerov iz vsakdanje prakse. Izbrani primeri so resnične zgodbe s pričakovanimi in nepričakovanimi razpleti, ki pri udeležencih spodbudijo razmišljanje, aktivno sodelovanje in razpravo. Interaktivne moderne delavnice potekajo v živo ob večernih urah v manjših skupinah z izkušenim mentorjem. Odpirajo nove možnosti in dostopnost izobraževanja. Online klinični primeri so uporabno, kakovostno in zanimivo izobraževanje pripravljeno po meri zdravnikov.
             </p>
           </div>
           <div class="shell offset-top-20 offset-sm-top-50">
@@ -100,7 +100,6 @@
               <div class="col-xs-12 text-left"><img class="img-responsive pull-sm-left" src="images/portfolio/portfolio-16-370x280.jpg" alt="">
                 <h3 class="offset-top-34 offset-sm-top-0">Potek delavnic</h3>
                 <p>120 minutne delavnice z mentorji, ki potekajo ob terminih objavljenih v zavihku razpisani termini.
-
                 Delavnico sestavljajo obravnava do deset primerov bolnikov, za katere je pripravljen nabor preiskav in izvidov. V živo z mentorjem poteka jemanje anamneze, statusa in naročanje preiskav. </p>
               </div>
             </div>

@@ -73,7 +73,7 @@
         </section>
         <!-- First Lesson - Free-->
         <section class="bg-gray-base context-dark">
-                  <div class="parallax-container" data-parallax-img="images/backgrounds/background-44-1920x1024.jpg">
+                  <div class="parallax-container" data-parallax-img="images/backgrounds/background-18-1920x615.jpg">
                     <div class="parallax-content">
                       <div class="shell section-66 context-dark">
                         <h2 class="text-bold">Ne najdete odgovora, ki ga iščete? Pišite nam in z veseljem vam bomo pomagali.</h2><a class="btn btn-icon btn-icon-left btn-default offset-top-20" href="contact-us.html"><span class="icon mdi-email-outline mdi"></span>Kontakt</a>
