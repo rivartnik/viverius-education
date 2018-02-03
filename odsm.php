@@ -76,30 +76,33 @@
           <div class="shell offset-top-66 text-left">
         <div class="code-counter-type-3"></div>
 </section>
-<section>
-                  <div class="parallax-container section-98 section-md-110" data-parallax-img="images/backgrounds/background-15-1920x1172.jpg">
-                    <div class="parallax-content section-66 context-dark">
-                      <div class="shell">
-                        <div class="range range-xs-center range-xs-center">
-                          <div class="cell-sm-8 cell-md-7 cell-lg-6">
-                            <h2 class="text-uppercase text-bold">Viverius novice</h2>
-                            <hr class="divider bg-mantis">
-                            <p>Bodite obveščeni o najnovejših tečajih in novostih. Vpišite svoj email in se prijavite na naše novice.</p>
-                            <!-- MailChimp subscribe-->
-                            <form class="rd-mailform mailchimp-mailform" data-form-output="form-output-global" data-form-type="subscribe" method="post" action="https://templatemonster.us15.list-manage.com/subscribe/post?u=ba5bb362073a413f48e4a7b90&amp;id=8dc95d9dec">
-                              <div class="form-group">
-                                <div class="input-group input-group-sm"><span class="input-group-addon input-group-addon-inverse"><span class="input-group-icon mdi mdi-email"></span></span>
-                                  <input class="form-control" placeholder="E-Mail" type="email" name="email" data-constraints="@Email @Required"><span class="input-group-btn">
-                                    <button class="btn btn-sm btn-primary" type="submit">Prijava</button></span>
-                                </div>
-                              </div>
-                            </form>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-        </section>
+<!-- Join Our Newsletter-->
+<section class="section parallax-container context-dark" data-parallax-img="images/bg-03-1920x650.jpg">
+<div class="parallax-content">
+  <div class="shell section-110">
+    <div class="range range-xs-center">
+      <div class="cell-xs-10 cell-sm-7 cell-lg-5">
+        <div>
+          <h2 class="text-bold">Viverius novice</h2>
+        </div>
+        <div class="offset-top-17">
+          <p>Bodite obveščeni o najnovejših tečajih in novostih.<br class="veil reveal md-inline-block"> Vpišite svoj email in se prijavite na naše novice.</p>
+        </div>
+        <div class="offset-top-30 offset-md-top-60 inset-md-left-55 inset-md-right-55">
+        <form action="//viverius.us16.list-manage.com/subscribe/post?u=809848c56ddc9b55acf0d8149&amp;id=3913c99157" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>                      <div class="form-group">
+              <div class="input-group input-group-sm"><span class="input-group-addon"><span class="input-group-icon mdi mdi-email"></span></span>
+                <input class="form-control" type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email naslov" data-constraints="@Email @Required"/><span class="input-group-btn">
+                  <button class="btn btn-sm btn-primary" type="submit">Subscribe</button></span>
+              </div>
+            </div>
+            <div class="form-output"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
 <section class="offset-top-20 offset-md-top-20">
           <div class="container">
             <div class="row offset-top-66">

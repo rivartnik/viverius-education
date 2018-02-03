@@ -46,7 +46,7 @@
                       The smartest and most flexible bootstrap template by TemplateMonster you've ever seen.
                       Create exactly what you need with our powerful bootstrap toolkit.
                     </h4>
-                   <div class="group group-xl offset-top-20 offset-xs-top-50"><a class="btn btn-primary btn-lg btn-anis-effect" href="//ld-wp2.template-help.com/novi-builder/intense-builder/" data-caption-animate="fadeIn" data-caption-delay="1200"><span class="btn-text">Preveri naše storitve</span></a><a class="btn btn-default btn-lg btn-anis-effect" href="//www.templatemonster.com/intense-multipurpose-html-template.html?utm_source=livedemo&amp;utm_medium=themebutton&amp;utm_campaign=intense" data-caption-animate="fadeIn" data-caption-delay="1200"><span class="btn-text">Prijava na tečaj</span></a></div>
+                   <div class="group group-xl offset-top-20 offset-xs-top-50"><a class="btn btn-primary btn-lg btn-anis-effect" href="storitve.php" data-caption-animate="fadeIn" data-caption-delay="1200"><span class="btn-text">Preveri naše storitve</span></a><a class="btn btn-default btn-lg btn-anis-effect" href="prijavnica.php" data-caption-animate="fadeIn" data-caption-delay="1200"><span class="btn-text">Prijava na tečaj</span></a></div>
                   </div>
                 </div>
               </div>
@@ -65,7 +65,7 @@
                     <h4 class="hidden reveal-sm-block text-light offset-bottom-0" data-caption-animate="fadeIn" data-caption-delay="900">
                       Naš najpopularnejši tečaj ima razpisane nove termine!
                     </h4>
-                    <div class="group group-xl offset-top-20 offset-xs-top-50"><a class="btn btn-icon btn-icon-left btn-primary btn-lg btn-anis-effect" href="//www.templatemonster.com/intense-multipurpose-html-template.html?utm_source=livedemo&amp;utm_medium=themebutton&amp;utm_campaign=intense" data-caption-animate="fadeIn" data-caption-delay="1200"><span class="btn-text">Preveri tečaje</span></a></div>
+                    <div class="group group-xl offset-top-20 offset-xs-top-50"><a class="btn btn-icon btn-icon-left btn-primary btn-lg btn-anis-effect" href="tecaji.php" data-caption-animate="fadeIn" data-caption-delay="1200"><span class="btn-text">Preveri tečaje</span></a></div>
                   </div>
                 </div>
               </div>
@@ -180,7 +180,7 @@
       </div>
     </section>
     <!-- Offers-->
-    <section class="section-34">
+    <section class="section-34" id="storitve">
     <div class="shell-fluid">
       <div class="range range-xs-center">
         <div class="cell-xs-8 cell-sm-6 cell-lg-3">
@@ -190,7 +190,7 @@
               <div>
                 <h4 class="thumbnail-terry-title">Online klinični primeri</h4>
               </div>
-           <a class="btn offset-top-10 offset-md-top-0 btn-primary" href="#">Več o</a>
+           <a class="btn offset-top-10 offset-md-top-0 btn-primary" href="okp.php">Več o</a>
             </figcaption>
           </figure>
         </div>
@@ -201,7 +201,7 @@
               <div>
                 <h4 class="thumbnail-terry-title">Online priprave na strokovni izpit</h4>
               </div>
-              <a class="btn offset-top-10 offset-md-top-0 btn-primary" href="#">Več o</a>
+              <a class="btn offset-top-10 offset-md-top-0 btn-primary" href="ops.php">Več o</a>
             </figcaption>
           </figure>
         </div>
@@ -212,7 +212,7 @@
               <div>
                 <h4 class="thumbnail-terry-title">Online delavnice za<br> študente medicine</h4>
               </div>
-             <a class="btn offset-top-10 offset-md-top-0 btn-primary" href="#">Več o</a>
+             <a class="btn offset-top-10 offset-md-top-0 btn-primary" href="odsm.php">Več o</a>
             </figcaption>
           </figure>
         </div>
@@ -223,7 +223,7 @@
               <div>
                 <h4 class="thumbnail-terry-title">Online seminarji in kongresi</h4>
               </div>
-             <a class="btn offset-top-10 offset-md-top-0 btn-primary" href="#">Več o</a>
+             <a class="btn offset-top-10 offset-md-top-0 btn-primary" href="osk.php">Več o</a>
             </figcaption>
           </figure>
         </div>
@@ -232,7 +232,7 @@
     </div>
   </section>
    <!-- Bootstrap Pills (Stacked)-->
-   <section class="offset-top-20 offset-md-top-40">
+   <section class="offset-top-20 offset-md-top-40 wow wow slideInRight" data-wow-delay="0.2s">
           <div class="shell">
             <h1>O nas</h1>
             <hr class="divider bg-mantis">
@@ -272,14 +272,13 @@
                     <p>Bodite obveščeni o najnovejših tečajih in novostih.<br class="veil reveal md-inline-block"> Vpišite svoj email in se prijavite na naše novice.</p>
                   </div>
                   <div class="offset-top-30 offset-md-top-60 inset-md-left-55 inset-md-right-55">
-                    <form class="rd-mailform" data-form-output="form-subscribe-footer" data-form-type="subscribe" method="post" action="bat/rd-mailform.php">
-                      <div class="form-group">
+                  <form action="//viverius.us16.list-manage.com/subscribe/post?u=809848c56ddc9b55acf0d8149&amp;id=3913c99157" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>                      <div class="form-group">
                         <div class="input-group input-group-sm"><span class="input-group-addon"><span class="input-group-icon mdi mdi-email"></span></span>
-                          <input class="form-control" placeholder="Enter your E-Mail" type="email" name="email" data-constraints="@Email @Required"/><span class="input-group-btn">
+                          <input class="form-control" type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email naslov" data-constraints="@Email @Required"/><span class="input-group-btn">
                             <button class="btn btn-sm btn-primary" type="submit">Subscribe</button></span>
                         </div>
                       </div>
-                      <div class="form-output" id="form-subscribe-footer"></div>
+                      <div class="form-output"></div>
                     </form>
                   </div>
                 </div>

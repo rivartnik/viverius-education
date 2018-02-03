@@ -105,7 +105,7 @@
               <div class="cell-sm-4 cell-md-4">
                 <div class="form-group">
                   <div style="display: block" id="selectOKP">
-                  <select class="form-control select-filter" data-placeholder="Online klinični primeri" data-minimum-results-for-search="Infinity">
+                  <select class="form-control select-filter" data-placeholder="Online klinični primeri" data-minimum-results-for-search="Infinity" id="prijava_okp">
                       <option value="" selected="selected">Online klinični primeri </option>
                       <option>1</option>
                       <option>2</option>
@@ -114,7 +114,7 @@
                   </select>
                   </div>
                   <div style="display: none" id="selectOPS">
-                  <select class="form-control select-filter" data-placeholder="Online priprave na strokovni izpit" data-minimum-results-for-search="Infinity">
+                  <select class="form-control select-filter" data-placeholder="Online priprave na strokovni izpit" data-minimum-results-for-search="Infinity" id="prijava_ops">
                     <option value="" selected="selected">Online priprave na strokovni izpit </option>
                     <option>1</option>
                     <option>2</option>
@@ -123,7 +123,7 @@
                 </select>
                   </div>
                   <div style="display: none" id="selectODS">
-                    <select class="form-control select-filter" data-placeholder="Online delavnice za študente medicine" data-minimum-results-for-search="Infinity">
+                    <select class="form-control select-filter" data-placeholder="Online delavnice za študente medicine" data-minimum-results-for-search="Infinity" id="prijava_ods">
                     <option value="" selected="selected">Online delavnice za študente medicine</option>
                     <option>1</option>
                     <option>2</option>
@@ -167,7 +167,6 @@
                       <label class="form-label form-label-outside" for="make-appointment-name">Status / izobrazba</label>
                         <select class="form-control select-filter" data-minimum-results-for-search="Infinity" data-constraints="@Required @Selected">  
                           <option value="" selected="selected"></option>
-                          <option>Brezposeln zdravnik</option>
                           <option>Študent</option>
                           <option>Pripravnik</option>
                           <option>Specializant</option>
@@ -194,6 +193,27 @@
     <!-- JavaScript-->
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
+    <script>
+              $('#button_send_data').on('click', function() {
+
+                // create variables
+                var select1 = $('#prijava_okp');
+                var select2 = $('#prijava_ops');
+                var select3 = $('#prijava_ods');
+
+                // validate form
+                if ( select1.val() == '' && select2.val() == '' && select3.val() == '') {
+
+                  alert('Izbrati morate vsaj en tečaj!');
+                  return false; // do not submit
+
+                }
+                else
+                {
+                  return true; // submit form
+                }
+
+              }); </script>
    
   </body>
 </html>
