@@ -20,7 +20,44 @@
     <![endif]-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
+    <script language="javascript"> 
+        $(document).ready(function () {
+            $('#okpswitch').change(function () {
+                var okpSelect  =  document.getElementById('prijava_okp');
+                if (!this.checked){
+                    //  ^
+                    $('#selectOKP').fadeOut('slow');
+                    okpSelect.selectedIndex = 0;
+                   
+                    }
+                else  {
+                    $('#selectOKP').fadeIn('slow');
+                }
+            });
+        });
+    </script>
+    <script language="javascript"> 
+        $(document).ready(function () {
+            $('#opsswitch').change(function () {
+                if (!this.checked)
+                    //  ^
+                    $('#selectOPS').fadeOut('slow');
+                else
+                    $('#selectOPS').fadeIn('slow');
+            });
+        });
+    </script>
+    <script language="javascript"> 
+        $(document).ready(function () {
+            $('#odsswitch').change(function () {
+                if (!this.checked)
+                    //  ^
+                    $('#selectODS').fadeOut('slow');
+                else
+                    $('#selectODS').fadeIn('slow');
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -55,57 +92,91 @@
 
         <main class="page-content section-top-20 section-sm-top-50">
             <section>
-                <form class="rd-mailform text-left" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+               
                     <div class="shell">
                         <div class="range range-sm-center">
                             <div class="cell-sm-12 cell-md-12">
                                 <div class="form-group" style="text-align: center">
                                     <h5>Prijavljam se na: (ustrezno označi)</h5>
                                     <label class="toggle-inline">
-                                        <input class="toggle-custom" id="okpswitch" name="input-group-toggle" value="toggle-1" type="checkbox" checked>Online klinični primeri
+                                        <input class="toggle-custom" id="okpswitch"  type="checkbox" checked>Online klinični primeri
                                     </label>
                                     <label class="toggle-inline">
-                                        <input class="toggle-custom" id="opsswitch" name="input-group-toggle1" value="toggle-2" type="checkbox">Online priprave na strokovni izpit
+                                        <input class="toggle-custom" id="opsswitch"  type="checkbox">Online priprave na strokovni izpit
                                     </label>
                                     <label class="toggle-inline">
-                                        <input class="toggle-custom" id="odsswitch" name="input-group-toggle2" value="toggle-3" type="checkbox">Online delavnice za študente medicine
+                                        <input class="toggle-custom" id="odsswitch"  type="checkbox">Online delavnice za študente medicine
                                     </label>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <form class="rd-mailform text-left" method="post" action="backend/DB_prijavnica.php">
                     <div class="shell">
                         <hr class="divider divider-sm bg-mantis">
                         <div class="range range-sm-center">
                             <div class="cell-sm-4 cell-md-4">
                                 <div class="form-group">
                                     <div style="display: block" id="selectOKP">
-                                        <select  data-minimum-results-for-search="Infinity" id="prijava_okp">
-                                            <option value="" selected>Online klinični primeri </option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
+                                        <select name="prijava_okp"  data-minimum-results-for-search="Infinity" id="prijava_okp">
+                                            <option value="" selected="selected">Online klinični primeri </option>
+                                              <?php
+                                                include("config.php");
+                                                session_start();
+                                                if (!$db) {
+                                                  die('Could not connect: ' . mysqli_error($db));
+                                                }
+                                                $sql = mysqli_query($db, "SELECT ID_TECAJA, DATUM, HOUR FROM razpisani_tecaji WHERE STATUS ='odprt' AND ST_ODPRTIH_MEST>0 AND VRSTA=1");
+                                                while ($row = $sql->fetch_assoc()){
+                                                  $row['DATUM'] = new DateTime($row['DATUM']);
+                                                  $dateFormated =  $row['DATUM']->format('d.m.Y');
+
+                                                  echo "<option value='" . $row['ID_TECAJA'] . "'>" . $dateFormated," ","ob"," ", $row['HOUR'] . "</option>";
+
+                                                }
+                                              ?>
                                         </select>
                                     </div>
                                     <div style="display: none" id="selectOPS">
-                                        <select class="form-control select-filter" data-placeholder="Online priprave na strokovni izpit" data-minimum-results-for-search="Infinity"
+                                        <select name="prijava_ops" class="form-control select-filter" data-placeholder="Online priprave na strokovni izpit" data-minimum-results-for-search="Infinity"
                                             id="prijava_ops">
-                                            <option value="" selected>Online priprave na strokovni izpit </option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
+                                            <option value="" selected="selected">Online priprave na strokovni izpit </option>
+                                            <?php
+                                              include("config.php");
+                                              session_start();
+                                              if (!$db) {
+                                                die('Could not connect: ' . mysqli_error($db));
+                                              }
+                                              $sql = mysqli_query($db, "SELECT ID_TECAJA, DATUM, HOUR FROM razpisani_tecaji WHERE STATUS ='odprt' AND ST_ODPRTIH_MEST>0 AND VRSTA=2");
+                                              while ($row = $sql->fetch_assoc()){
+                                                $row['DATUM'] = new DateTime($row['DATUM']);
+                                                $dateFormated =  $row['DATUM']->format('d.m.Y');
+                      
+                                                echo "<option value='" . $row['ID_TECAJA'] . "'>" . $dateFormated," ","ob"," ", $row['HOUR'] . "</option>";
+                      
+                                              }
+                                            ?>
                                         </select>
                                     </div>
                                     <div style="display: none" id="selectODS">
-                                        <select class="form-control select-filter" data-placeholder="Online delavnice za študente medicine" data-minimum-results-for-search="Infinity"
+                                        <select  name="prijava_ods" class="form-control select-filter" data-placeholder="Online delavnice za študente medicine" data-minimum-results-for-search="Infinity"
                                             id="prijava_ods">
-                                            <option value="" selected disabled>Online delavnice za študente medicine</option>
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
+                                            <option value="" selected="selected">Online delavnice za študente medicine</option>
+                                            <?php
+                                                  include("config.php");
+                                                  session_start();
+                                                  if (!$db) {
+                                                    die('Could not connect: ' . mysqli_error($db));
+                                                  }
+                                                  $sql = mysqli_query($db, "SELECT ID_TECAJA, DATUM, HOUR FROM razpisani_tecaji WHERE STATUS ='odprt' AND ST_ODPRTIH_MEST>0 AND VRSTA=3");
+                                                  while ($row = $sql->fetch_assoc()){
+                                                    $row['DATUM'] = new DateTime($row['DATUM']);
+                                                    $dateFormated =  $row['DATUM']->format('d.m.Y');
+
+                                                    echo "<option value='" . $row['ID_TECAJA'] . "'>" . $dateFormated," ","ob"," ", $row['HOUR'] . "</option>";
+
+                                                  }
+                                                  ?>
                                         </select>
                                     </div>
                                 </div>
@@ -215,44 +286,7 @@ function okpCLEAR(){
   selectTags.selectedIndex =0;
 }
 </script>-->
-<script language="javascript"> 
-        $(document).ready(function () {
-            $('#okpswitch').change(function () {
-                //var okpSelect  =  document.getElementById('prijava_okp');
-                if (!this.checked){
-                    //  ^
-                    $('#selectOKP').fadeOut('slow');
-                    //okpSelect.selectedIndex = -1;
-                    $('#prijava_okp').prop('selectedIndex',0);
-                    }
-                else  {
-                    $('#selectOKP').fadeIn('slow');
-                }
-            });
-        });
-    </script>
-    <script language="javascript"> 
-        $(document).ready(function () {
-            $('#opsswitch').change(function () {
-                if (!this.checked)
-                    //  ^
-                    $('#selectOPS').fadeOut('slow');
-                else
-                    $('#selectOPS').fadeIn('slow');
-            });
-        });
-    </script>
-    <script language="javascript"> 
-        $(document).ready(function () {
-            $('#odsswitch').change(function () {
-                if (!this.checked)
-                    //  ^
-                    $('#selectODS').fadeOut('slow');
-                else
-                    $('#selectODS').fadeIn('slow');
-            });
-        });
-    </script>
+
 
 </body>
 

@@ -53,18 +53,18 @@
               <div class="range range-xs-center text-sm-left offset-top-50">
                 <div class="cell-xs-10 cell-sm-8 cell-md-8 cell-lg-5 cell-xl-4">
                   <!-- RD Mailform-->
-                  <form class="rd-mailform text-left" data-form-output="form-output-global" data-form-type="contact" method="post" action="phpFormFiles/email.php">
+                  <form class="rd-mailform text-left" method="post" action="backend/PHP_kontakt.php">
                     <div class="range">
                       <div class="cell-lg-6">
                         <div class="form-group">
                           <label class="form-label" for="contact-me-name">Ime</label>
-                          <input class="form-control" id="contact-me-name" type="text" name="name" data-constraints="@Required">
+                          <input class="form-control" id="contact-me-name" type="text" name="ime" data-constraints="@Required">
                         </div>
                       </div>
                       <div class="cell-lg-6 offset-top-20 offset-lg-top-0">
                         <div class="form-group">
                           <label class="form-label" for="contact-me-name">Priimek</label>
-                          <input class="form-control" id="contact-me-name" type="text" name="surname" data-constraints="@Required">
+                          <input class="form-control" id="contact-me-name" type="text" name="priimek" data-constraints="@Required">
                         </div>
                       </div>
                       <div class="cell-lg-12 offset-top-20 offset-lg-top-30">
@@ -76,7 +76,7 @@
                       <div class="cell-lg-12 offset-top-20 offset-lg-top-30">
                         <div class="form-group">
                           <label class="form-label" for="contact-me-message">Sporočilo</label>
-                          <textarea class="form-control" id="contact-me-message" name="message" data-constraints="@Required" style="height: 150px;"></textarea>
+                          <textarea class="form-control" id="contact-me-message" name="sporocilo" data-constraints="@Required" style="height: 150px;"></textarea>
                         </div>
                       </div>
                     </div>
