@@ -18,49 +18,62 @@
     <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
     <script src="js/html5shiv.min.js"></script>
     <![endif]-->
-
+ 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script language="javascript"> 
+    
+    <script>
+        $('#button_send_data').on('click', function () {
+
+            // create variables
+            var select1 = $('#prijava_okp');
+            var select2 = $('#prijava_ops');
+            var select3 = $('#prijava_ods');
+
+            // validate form
+            if (select1.val() == '' && select2.val() == '' && select3.val() == '') {
+
+                alert('Izbrati morate vsaj en tečaj!');
+                return false; // do not submit
+
+            }
+            else {
+                return true; // submit form
+            }
+
+        }); </script>
+
+    <script> 
         $(document).ready(function () {
             $('#okpswitch').change(function () {
                 var okpSelect  =  document.getElementById('prijava_okp');
+               // var defText = okpSelect[0].innerHTML;
                 if (!this.checked){
-                    //  ^
                     $('#selectOKP').fadeOut('slow');
                     okpSelect.selectedIndex = 0;
-                   
                     }
                 else  {
                     $('#selectOKP').fadeIn('slow');
                 }
             });
-        });
-    </script>
-    <script language="javascript"> 
-        $(document).ready(function () {
             $('#opsswitch').change(function () {
                 if (!this.checked)
-                    //  ^
                     $('#selectOPS').fadeOut('slow');
                 else
                     $('#selectOPS').fadeIn('slow');
             });
-        });
-    </script>
-    <script language="javascript"> 
-        $(document).ready(function () {
             $('#odsswitch').change(function () {
                 if (!this.checked)
-                    //  ^
                     $('#selectODS').fadeOut('slow');
                 else
                     $('#selectODS').fadeIn('slow');
             });
         });
     </script>
+  
 </head>
 
 <body>
+
     <!-- Page-->
     <div class="page text-center">
         <!-- Page Header-->
@@ -179,6 +192,7 @@
                                                   ?>
                                         </select>
                                     </div>
+                                    <div class="shell offset-top-20 text-left"><div>
                                 </div>
                             </div>
                         </div>
@@ -187,6 +201,7 @@
                         <div class="range range-xs-center">
                             <div class="cell-sm-8 cell-md-7 cell-lg-8">
                                 <div class="range">
+                    
                                     <div class="cell-lg-6">
                                         <div class="form-group">
                                             <label class="form-label form-label-outside" for="make-appointment-name">Ime:</label>
@@ -246,46 +261,10 @@
         <?php include("footer.html");?>
     </div>
     <!-- JavaScript-->
-    <script src="js/core.min.js"></script>
-    <script src="js/script.js"></script>
-    <script>
-        $('#button_send_data').on('click', function () {
-
-            // create variables
-            var select1 = $('#prijava_okp');
-            var select2 = $('#prijava_ops');
-            var select3 = $('#prijava_ods');
-
-            // validate form
-            if (select1.val() == '' && select2.val() == '' && select3.val() == '') {
-
-                alert('Izbrati morate vsaj en tečaj!');
-                return false; // do not submit
-
-            }
-            else {
-                return true; // submit form
-            }
-
-        }); </script>
-        <!-- <script language="javascript">  
-          var okpCheckbox  =  document.getElementById('okpswitch');
-          var okpSelect  =  document.getElementById('prijava_okp');
-          okpCheckbox.addEventListener("click", function(e){
-            if (this.checked){
-              okpSelect.disabled = false;     
-            } else {
-              okpSelect.selectedIndex = 0;
-              okpSelect.disabled = true;     
-            }
-          });
-        </script>
-<!--<script>
-function okpCLEAR(){
-  selectTags=document.getElementById("prijava_okp").selectedIndex = "2";
-  selectTags.selectedIndex =0;
-}
-</script>-->
+   
+   
+<script src="js/core.min.js"></script>
+<script src="js/script.js"></script>
 
 
 </body>
