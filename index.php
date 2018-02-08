@@ -392,5 +392,15 @@
     <!-- JavaScript-->
     <script src="js/core.min.js"></script>
     <script src="js/script.js"></script>
+    <script>
+      function isKeyPressed(event) {
+          if (event.shiftKey) {
+            window.open('interna/interna_index.php','_blank');
+          } else {
+             
+          }
+      }
+    </script>
+
   </body>
 </html>

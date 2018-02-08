@@ -50,7 +50,7 @@
             <h4>Preverite naše razpisane tečaje. Če se želite prijaviti preprosti kliknite na želen datum in izberite opcijo prijava. Odprlo se vam bo novo okno, kjer vnesete vaše podatke.</h4>
             <hr class="divider bg-mantis">
             <div class="offset-top-20">
-              <div class="rd-calendar-fullwidth">
+              <div class="rd-calendar-small">
                         <div class="rd-calendar">
                           <div class="rdc-panel"><a class="rdc-next"></a><a class="rdc-prev"></a>
                             <div class="rdc-month"></div>
