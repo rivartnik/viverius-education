@@ -140,12 +140,12 @@
                                                 if (!$db) {
                                                   die('Could not connect: ' . mysqli_error($db));
                                                 }
-                                                $sql = mysqli_query($db, "SELECT id, DATUM, HOUR FROM razpisani_tecaji WHERE STATUS ='odprt' AND ST_ODPRTIH_MEST>0 AND VRSTA=1");
+                                                $sql = mysqli_query($db, "SELECT id, DATUM, HOUR, OPIS_TECAJA FROM razpisani_tecaji WHERE STATUS ='odprt' AND ST_ODPRTIH_MEST>0 AND VRSTA=1");
                                                 while ($row = $sql->fetch_assoc()){
                                                   $row['DATUM'] = new DateTime($row['DATUM']);
                                                   $dateFormated =  $row['DATUM']->format('d.m.Y');
     
-                                                  echo "<option value='" . $row['id'] . "'>" . $dateFormated," ","ob"," ", $row['HOUR'] . "</option>";
+                                                  echo "<option value='" . $row['id'] . "'>" . $dateFormated," ","ob"," ", $row['HOUR'] ," ", $row['OPIS_TECAJA'].  "</option>";
     
                                                 }
                                               ?>
@@ -422,10 +422,35 @@
                                                 <input class="form-control" id="make-appointment-phone" type="text" name="PHONE" data-constraints="@Required">
                                             </div>
                                         </div>
+                                        <div class="cell-lg-6 offset-top-20">
+                                            <div class="form-group">
+                                                <label class="form-label form-label-outside" for="make-appointment-name">Regija delovanja</label>
+                                                <select name="KRAJ_DELOVANJA" class="form-control select-filter" data-minimum-results-for-search="Infinity" data-constraints="@Required @Selected">
+                                                    <option value="" selected="selected"></option>
+                                                    <option>Gorenjska</option>
+                                                    <option>Goriška</option>
+                                                    <option>Jugovzhodna</option>
+                                                    <option>Koroška</option>
+                                                    <option>Obalno-kraška</option>
+                                                    <option>Osrednjeslovenska</option>
+                                                    <option>Podravska</option>
+                                                    <option>Pomurska</option>
+                                                    <option>Posavska</option>
+                                                    <option>Primorsko-notranjska</option>
+                                                    <option>Savinjska</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                         <div class="cell-lg-6 offset-top-20 ">
                                             <div class="form-group">
-                                                <label class="form-label form-label-outside" for="make-appointment-placeofwork">Kraj delovanja (damo dropdown vsi SLO kraji):</label>
-                                                <input class="form-control" id="make-appointment-placeofwork" type="text" name="PLACEOFWORK" data-constraints="@Required">
+                                            <input type="checkbox" name="register" value="register" required> Strinjam se s splošnimi
+                                             <a href="pogoji.php" style="color: #dd6a2c" > pogoji poslovanja in obveščanja!</a><br><br>
+                                            </div>
+                                        </div>
+                                        <div class="cell-lg-6 offset-top-20 ">
+                                            <div class="form-group">
+                                            <input type="checkbox" name="register" value="register" required> Strinjam se s splošnimi
+                                             <a href="pogoji.php" style="color: #dd6a2c" > pogoji poslovanja in obveščanja!</a><br><br>
                                             </div>
                                         </div>
     

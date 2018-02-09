@@ -45,11 +45,7 @@
           <!-- Contact Us-->
           <section>
             <div class="shell-fluid">
-              <div class="range range-xs-center text-sm-left offset-top-50">
-                <div class="cell-xs-10 cell-sm-8 cell-md-8 cell-xl-6 text-left">
-                  <p>Za vsa vprašanja, pohvale ali pripombe nam pišite in odgovorili vam bomo v najkrajšem možnem času.</p>
-                </div>
-              </div>
+              
               <div class="range range-xs-center text-sm-left offset-top-50">
                 <div class="cell-xs-10 cell-sm-8 cell-md-8 cell-lg-5 cell-xl-4">
                   <!-- RD Mailform-->
@@ -75,7 +71,7 @@
                       </div>
                       <div class="cell-lg-12 offset-top-20 offset-lg-top-30">
                         <div class="form-group">
-                          <label class="form-label" for="contact-me-message">Sporočilo</label>
+                          <label class="form-label" for="contact-me-message">Za vsa vprašanja, pohvale ali pripombe nam pišite in odgovorili vam bomo v najkrajšem možnem času.</label>
                           <textarea class="form-control" id="contact-me-message" name="sporocilo" data-constraints="@Required" style="height: 150px;"></textarea>
                         </div>
                       </div>
@@ -96,7 +92,7 @@
                       </div>
                       <div class="p unit unit-spacing-xs unit-horizontal offset-top-20">
                         <div class="unit-left"><span class="icon icon-xxs fa fa-phone"></span></div>
-                        <div class="unit-body"><a href="callto:#">+386 41-881 193</a></div>
+                        <div class="unit-body"><a href="callto:#">+386 41 881 193</a></div>
                       </div>
                       <div class="p unit unit-spacing-xs unit-horizontal offset-top-10">
                         <div class="unit-left"><span class="icon icon-xxs fa fa-envelope"></span></div>
