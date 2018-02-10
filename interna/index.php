@@ -1,18 +1,12 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-
-<!--
-/*
- * examples/mysql/index.html
- * 
- * This file is part of EditableGrid.
- * http://editablegrid.net
- *
- * Copyright (c) 2011 Webismymind SPRL
- * Dual licensed under the MIT or GPL Version 2 licenses.
- * http://editablegrid.net/license
- */
--->
-
+<?php
+session_start();
+if($_SESSION["loggedIn"] != true) {
+    echo("Access denied!");
+    exit();
+}
+//echo("Enter my lord!");
+?>
 <html>
 
 <head>
@@ -32,12 +26,18 @@
   <div id="wrap">
     <h1>Viverius education - Tečaji</h1>
 
+    
+    <div id="toolbar">
+    <button type="button">Dodajanje termina</button>
+    <button type="button">Pregled prijav</button>
+    </div><br>
     <!-- Feedback message zone -->
 
 
     <div id="toolbar">
       <a id="showaddformbutton" class="button green">
         <i class="fa fa-plus"></i> Add new row</a>
+        <p>1. OKP - splosne teme, <br> 2. OKP - gibala in kronicna bolecina,<br>3. OKP - kardiovaskularni sistem,<br>4. OPS<br>5. ODS<br> </p>
     </div>
     <br>
     <!-- Grid contents -->

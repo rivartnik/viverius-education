@@ -18,42 +18,28 @@
     <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
     <script src="js/html5shiv.min.js"></script>
     <![endif]-->
- 
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
-    <script>
-        $('#button_send_data').on('click', function () {
-
-            // create variables
-            var select1 = $('#prijava_okp');
-            var select2 = $('#prijava_ops');
-            var select3 = $('#prijava_ods');
-
-            // validate form
-            if (select1.val() == '' && select2.val() == '' && select3.val() == '') {
-
-                alert('Izbrati morate vsaj en tečaj!');
-                return false; // do not submit
-
-            }
-            else {
-                return true; // submit form
-            }
-
-        }); </script>
 
     <script> 
         $(document).ready(function () {
-            $('#okpswitch').change(function () {
-                var okpSelect  =  document.getElementById('prijava_okp');
-               // var defText = okpSelect[0].innerHTML;
-                if (!this.checked){
-                    $('#selectOKP').fadeOut('slow');
-                    okpSelect.selectedIndex = 0;
-                    }
-                else  {
-                    $('#selectOKP').fadeIn('slow');
-                }
+            $('#okpswitch_S').change(function () {
+                if (!this.checked) 
+                    $('#selectOKP_S').fadeOut('slow'); 
+                else
+                    $('#selectOKP_S').fadeIn('slow');
+            });
+            $('#okpswitch_G').change(function () {
+                if (!this.checked) 
+                    $('#selectOKP_G').fadeOut('slow'); 
+                else 
+                    $('#selectOKP_G').fadeIn('slow');
+            });
+            $('#okpswitch_K').change(function () {
+                if (!this.checked) 
+                    $('#selectOKP_K').fadeOut('slow'); 
+                else 
+                    $('#selectOKP_K').fadeIn('slow');
             });
             $('#opsswitch').change(function () {
                 if (!this.checked)
@@ -69,7 +55,7 @@
             });
         });
     </script>
-  
+
 </head>
 
 <body>
@@ -104,37 +90,43 @@
         </section>
 
         <main class="page-content section-top-20 section-sm-top-50">
-        <section>
-    
-            <div class="shell">
-                <div class="range range-sm-center">
-                    <div class="cell-sm-12 cell-md-12">
-                        <div class="form-group" style="text-align: center">
-                            <h5>Prijavljam se na: (ustrezno označi)</h5>
-                            <label class="toggle-inline">
-                                <input class="toggle-custom" id="okpswitch" type="checkbox" checked>Online klinični primeri
-                            </label>
-                            <label class="toggle-inline">
-                                <input class="toggle-custom" id="opsswitch" type="checkbox">Online priprave na strokovni izpit
-                            </label>
-                            <label class="toggle-inline">
-                                <input class="toggle-custom" id="odsswitch" type="checkbox">Online delavnice za študente medicine
-                            </label>
+            <section>
+
+                <div class="shell">
+                    <div class="range range-sm-center">
+                        <div class="cell-sm-12 cell-md-12">
+                            <div class="form-group" style="text-align: center">
+                                <h5>Prijavljam se na: (ustrezno označi)</h5>
+                                <label class="toggle-inline">
+                                    <input class="toggle-custom" id="okpswitch_S" type="checkbox" checked>Online klinični primeri - splošne teme
+                                </label>
+                                <label class="toggle-inline">
+                                    <input class="toggle-custom" id="okpswitch_G" type="checkbox">Online klinični primeri - gibala in kronična bolečina
+                                </label>
+                                <label class="toggle-inline">
+                                    <input class="toggle-custom" id="okpswitch_K" type="checkbox">Online klinični primeri - kardiovaskularni sistem
+                                </label>
+                                <label class="toggle-inline">
+                                    <input class="toggle-custom" id="opsswitch" type="checkbox">Online priprave na strokovni izpit
+                                </label>
+                                <label class="toggle-inline">
+                                    <input class="toggle-custom" id="odsswitch" type="checkbox">Online delavnice za študente medicine
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <form class="rd-mailform text-left" method="post" action="backend/DB_prijavnica.php">
-                <div class="shell">
-                    <hr class="divider divider-sm bg-mantis">
-                    <div class="range range-sm-middle range-sm-center">
-                        <div style="padding-right:140px">
-                        <div class="cell-sm-4 cell-md-4">
-                            <div class="form-group">
-                                <div style="display: block" id="selectOKP">
-                                    <select name="prijava_okp" data-minimum-results-for-search="Infinity" id="prijava_okp">
-                                        <option value="" selected="selected">Online klinični primeri </option>
-                                        <?php
+                <form class="rd-mailform text-left" method="post" action="backend/DB_prijavnica.php">
+                    <div class="shell">
+                        <hr class="divider divider-sm bg-mantis">
+                        <div class="range range-sm-middle range-sm-center">
+                            <div style="padding-right:140px">
+                                <div class="cell-sm-4 cell-md-4">
+                                    <div class="form-group">
+                                        <div style="display: block" id="selectOKP_S">
+                                            <select name="prijava_okp_S"  class="form-control select-filter"  id="prijava_okp_S">
+                                                <option value="" selected="selected">OKP - splošne teme </option>
+                                                <?php
                                                 include("config.php");
                                                 session_start();
                                                 if (!$db) {
@@ -145,38 +137,36 @@
                                                   $row['DATUM'] = new DateTime($row['DATUM']);
                                                   $dateFormated =  $row['DATUM']->format('d.m.Y');
     
-                                                  echo "<option value='" . $row['id'] . "'>" . $dateFormated," ","ob"," ", $row['HOUR'] ," ", $row['OPIS_TECAJA'].  "</option>";
+                                                  echo "<option value='" . $row['id'] . "'>" . $dateFormated," ","ob"," ", $row['HOUR'] .  "</option>";
     
                                                 }
                                               ?>
-                                    </select>
-                                </div>
-                                <div style="display: none" id="selectOPS">
-                                    <select name="prijava_ops" class="form-control select-filter" data-placeholder="Online priprave na strokovni izpit" data-minimum-results-for-search="Infinity"
-                                        id="prijava_ops">
-                                        <option value="" selected="selected">Online priprave na strokovni izpit </option>
-                                        <?php
-                                              include("config.php");
-                                              session_start();
-                                              if (!$db) {
-                                                die('Could not connect: ' . mysqli_error($db));
-                                              }
-                                              $sql = mysqli_query($db, "SELECT id, DATUM, HOUR FROM razpisani_tecaji WHERE STATUS ='odprt' AND ST_ODPRTIH_MEST>0 AND VRSTA=2");
-                                              while ($row = $sql->fetch_assoc()){
-                                                $row['DATUM'] = new DateTime($row['DATUM']);
-                                                $dateFormated =  $row['DATUM']->format('d.m.Y');
-                      
-                                                echo "<option value='" . $row['id'] . "'>" . $dateFormated," ","ob"," ", $row['HOUR'] . "</option>";
-                      
-                                              }
-                                            ?>
-                                    </select>
-                                </div>
-                                <div style="display: none" id="selectODS">
-                                    <select name="prijava_ods" class="form-control select-filter" data-placeholder="Online delavnice za študente medicine" data-minimum-results-for-search="Infinity"
-                                        id="prijava_ods">
-                                        <option value="" selected="selected">Online delavnice za študente medicine</option>
-                                        <?php
+                                            </select>
+                                        </div>
+                                        <div style="display: none" id="selectOKP_G">
+                                            <select name="prijava_okp_G" class="form-control select-filter" id="prijava_okp_G">
+                                                <option value="" selected="selected">OKP - gibala in kronična bolečina</option>
+                                                <?php
+                                                  include("config.php");
+                                                  session_start();
+                                                  if (!$db) {
+                                                    die('Could not connect: ' . mysqli_error($db));
+                                                  }
+                                                  $sql = mysqli_query($db, "SELECT id, DATUM, HOUR FROM razpisani_tecaji WHERE STATUS ='odprt' AND ST_ODPRTIH_MEST>0 AND VRSTA=2");
+                                                  while ($row = $sql->fetch_assoc()){
+                                                    $row['DATUM'] = new DateTime($row['DATUM']);
+                                                    $dateFormated =  $row['DATUM']->format('d.m.Y');
+    
+                                                    echo "<option value='" . $row['id'] . "'>" . $dateFormated," ","ob"," ", $row['HOUR'] . "</option>";
+    
+                                                  }
+                                                  ?>
+                                            </select>
+                                        </div>
+                                        <div style="display: none" id="selectOKP_K">
+                                            <select name="prijava_okp_K" class="form-control select-filter" id="prijava_okp_K">
+                                                <option value="" selected="selected">OKP - kardiovaskularni sistem</option>
+                                                <?php
                                                   include("config.php");
                                                   session_start();
                                                   if (!$db) {
@@ -191,201 +181,105 @@
     
                                                   }
                                                   ?>
-                                    </select>
+                                            </select>
+                                        </div>
+                                        <div style="display: none" id="selectOPS">
+                                            <select name="prijava_ops" class="form-control select-filter" id="prijava_ops">
+                                                <option value="" selected="selected">Online priprave na strokovni izpit </option>
+                                                <?php
+                                              include("config.php");
+                                              session_start();
+                                              if (!$db) {
+                                                die('Could not connect: ' . mysqli_error($db));
+                                              }
+                                              $sql = mysqli_query($db, "SELECT id, DATUM, HOUR FROM razpisani_tecaji WHERE STATUS ='odprt' AND ST_ODPRTIH_MEST>0 AND VRSTA=4");
+                                              while ($row = $sql->fetch_assoc()){
+                                                $row['DATUM'] = new DateTime($row['DATUM']);
+                                                $dateFormated =  $row['DATUM']->format('d.m.Y');
+                      
+                                                echo "<option value='" . $row['id'] . "'>" . $dateFormated," ","ob"," ", $row['HOUR'] . "</option>";
+                      
+                                              }
+                                            ?>
+                                            </select>
+                                        </div>
+                                        <div style="display: none" id="selectODS">
+                                            <select name="prijava_ods" class="form-control select-filter" id="prijava_ods">
+                                                <option value="" selected="selected">Online delavnice za študente medicine</option>
+                                                <?php
+                                                  include("config.php");
+                                                  session_start();
+                                                  if (!$db) {
+                                                    die('Could not connect: ' . mysqli_error($db));
+                                                  }
+                                                  $sql = mysqli_query($db, "SELECT id, DATUM, HOUR FROM razpisani_tecaji WHERE STATUS ='odprt' AND ST_ODPRTIH_MEST>0 AND VRSTA=5");
+                                                  while ($row = $sql->fetch_assoc()){
+                                                    $row['DATUM'] = new DateTime($row['DATUM']);
+                                                    $dateFormated =  $row['DATUM']->format('d.m.Y');
+    
+                                                    echo "<option value='" . $row['id'] . "'>" . $dateFormated," ","ob"," ", $row['HOUR'] . "</option>";
+    
+                                                  }
+                                                  ?>
+                                            </select>
+                                        </div>
+                                        <div class="shell offset-top-20 text-left">
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="shell offset-top-20 text-left"> 
+                            </div>
+                            <div class="rd-calendar-small">
+                                <div class="rd-calendar">
+                                    <div class="rdc-panel">
+                                        <a class="rdc-next"></a>
+                                        <a class="rdc-prev"></a>
+                                        <div class="rdc-month"></div>
+                                        <div class="rdc-fullyear"></div>
+                                    </div>
+                                    <div class="rdc-table"></div>
+                                    <div class="rdc-events text-left">
+                                        <a class="rdc-events_close"></a>
+                                        <ul>
+                                            <li class="rdc-event" data-date="01/01/2018">
+                                                <div class="rdc-event-wrap bg-blue-gray context-dark">
+                                                    <article class="post widget-event">
+                                                        <div class="post-meta">
+                                                            <span class="icon icon-xxs text-picton-blue mdi mdi-clock"></span>
+                                                            <time class="text-dark" datetime="2016-01-01">10:00 AM</time>
+                                                        </div>
+                                                        <div class="post-title">
+                                                            <h6 class="text-regular">
+                                                                <a href="#">International Conference</a>
+                                                            </h6>
+                                                        </div>
+                                                    </article>
+                                                </div>
+                                            </li>
+                                            <li class="rdc-event" data-date="05/23/2016">
+                                                <div class="rdc-event-wrap bg-saffron context-dark">
+                                                    <article class="post widget-event">
+                                                        <div class="post-meta">
+                                                            <span class="icon icon-xxs text-picton-blue mdi mdi-clock"></span>
+                                                            <time class="text-dark" datetime="2016-01-01">9:00 AM</time>
+                                                        </div>
+                                                        <div class="post-title">
+                                                            <h6 class="text-regular">
+                                                                <a href="#">Family breakfast</a>
+                                                            </h6>
+                                                        </div>
+                                                    </article>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                                                </div>
-                        <div class="rd-calendar-small">
-    <div class="rd-calendar">
-        <div class="rdc-panel">
-            <a class="rdc-next"></a>
-            <a class="rdc-prev"></a>
-            <div class="rdc-month"></div>
-            <div class="rdc-fullyear"></div>
-        </div>
-        <div class="rdc-table"></div>
-        <div class="rdc-events text-left">
-            <a class="rdc-events_close"></a>
-            <ul>
-                <li class="rdc-event" data-date="01/01/2018">
-                    <div class="rdc-event-wrap bg-blue-gray context-dark">
-                        <article class="post widget-event">
-                            <div class="post-meta">
-                                <span class="icon icon-xxs text-picton-blue mdi mdi-clock"></span>
-                                <time class="text-dark" datetime="2016-01-01">10:00 AM</time>
-                            </div>
-                            <div class="post-title">
-                                <h6 class="text-regular">
-                                    <a href="#">International Conference</a>
-                                </h6>
-                            </div>
-                        </article>
-                    </div>
-                </li>
-                <li class="rdc-event" data-date="01/02/2018">
-                    <div class="rdc-event-wrap bg-blue-gray context-dark">
-                        <article class="post widget-event">
-                            <div class="post-meta">
-                                <span class="icon icon-xxs text-picton-blue mdi mdi-clock"></span>
-                                <time class="text-dark" datetime="2016-01-01">10:00 am</time>
-                            </div>
-                            <div class="post-title">
-                                <h6 class="text-regular">
-                                    <a href="#">International Conference Day 2</a>
-                                </h6>
-                            </div>
-                        </article>
-                    </div>
-                </li>
-                <li class="rdc-event" data-date="04/19/2016">
-                    <div class="rdc-event-wrap bg-mantis context-dark">
-                        <article class="post widget-event">
-                            <div class="post-meta">
-                                <span class="icon icon-xxs text-picton-blue mdi mdi-clock"></span>
-                                <time class="text-dark" datetime="2016-01-01">9:00 AM</time>
-                            </div>
-                            <div class="post-title">
-                                <h6 class="text-regular">
-                                    <a href="#">Opening of the exhibition</a>
-                                </h6>
-                            </div>
-                        </article>
-                    </div>
-                </li>
-                <li class="rdc-event" data-date="04/28/2016">
-                    <div class="rdc-event-wrap bg-mantis context-dark">
-                        <article class="post widget-event">
-                            <div class="post-meta">
-                                <span class="icon icon-xxs text-picton-blue mdi mdi-clock"></span>
-                                <time class="text-dark" datetime="2016-01-01">6:00 pm</time>
-                            </div>
-                            <div class="post-title">
-                                <h6 class="text-regular">
-                                    <a href="#">Exhibition closing</a>
-                                </h6>
-                            </div>
-                        </article>
-                    </div>
-                </li>
-                <li class="rdc-event" data-date="04/29/2016">
-                    <div class="rdc-event-wrap bg-saffron context-dark">
-                        <article class="post widget-event">
-                            <div class="post-meta">
-                                <span class="icon icon-xxs text-picton-blue mdi mdi-clock"></span>
-                                <time class="text-dark" datetime="2016-01-01">9:00 AM</time>
-                            </div>
-                            <div class="post-title">
-                                <h6 class="text-regular">
-                                    <a href="#">Family breakfast</a>
-                                </h6>
-                            </div>
-                        </article>
-                    </div>
-                </li>
-                <li class="rdc-event" data-date="05/05/2016">
-                    <div class="rdc-event-wrap bg-blue-gray context-dark">
-                        <article class="post widget-event">
-                            <div class="post-meta">
-                                <span class="icon icon-xxs text-picton-blue mdi mdi-clock"></span>
-                                <time class="text-dark" datetime="2016-01-01">10:00 am</time>
-                            </div>
-                            <div class="post-title">
-                                <h6 class="text-regular">
-                                    <a href="#">International Conference</a>
-                                </h6>
-                            </div>
-                        </article>
-                    </div>
-                </li>
-                <li class="rdc-event" data-date="05/16/2016">
-                    <div class="rdc-event-wrap bg-blue-gray context-dark">
-                        <article class="post widget-event">
-                            <div class="post-meta">
-                                <span class="icon icon-xxs text-picton-blue mdi mdi-clock"></span>
-                                <time class="text-dark" datetime="2016-01-01">10:00 am</time>
-                            </div>
-                            <div class="post-title">
-                                <h6 class="text-regular">
-                                    <a href="#">International Conference</a>
-                                </h6>
-                            </div>
-                        </article>
-                    </div>
-                </li>
-                <li class="rdc-event" data-date="05/17/2016">
-                    <div class="rdc-event-wrap bg-blue-gray context-dark">
-                        <article class="post widget-event">
-                            <div class="post-meta">
-                                <span class="icon icon-xxs text-picton-blue mdi mdi-clock"></span>
-                                <time class="text-dark" datetime="2016-01-01">10:00 am</time>
-                            </div>
-                            <div class="post-title">
-                                <h6 class="text-regular">
-                                    <a href="#">International Conference Day 2</a>
-                                </h6>
-                            </div>
-                        </article>
-                    </div>
-                </li>
-                <li class="rdc-event" data-date="05/19/2016">
-                    <div class="rdc-event-wrap bg-mantis context-dark">
-                        <article class="post widget-event">
-                            <div class="post-meta">
-                                <span class="icon icon-xxs text-picton-blue mdi mdi-clock"></span>
-                                <time class="text-dark" datetime="2016-01-01">9:00 AM</time>
-                            </div>
-                            <div class="post-title">
-                                <h6 class="text-regular">
-                                    <a href="#">Opening of the exhibition</a>
-                                </h6>
-                            </div>
-                        </article>
-                    </div>
-                </li>
-                <li class="rdc-event" data-date="05/28/2016">
-                    <div class="rdc-event-wrap bg-mantis context-dark">
-                        <article class="post widget-event">
-                            <div class="post-meta">
-                                <span class="icon icon-xxs text-picton-blue mdi mdi-clock"></span>
-                                <time class="text-dark" datetime="2016-01-01">6:00 pm</time>
-                            </div>
-                            <div class="post-title">
-                                <h6 class="text-regular">
-                                    <a href="#">Exhibition closing</a>
-                                </h6>
-                            </div>
-                        </article>
-                    </div>
-                </li>
-                <li class="rdc-event" data-date="05/23/2016">
-                    <div class="rdc-event-wrap bg-saffron context-dark">
-                        <article class="post widget-event">
-                            <div class="post-meta">
-                                <span class="icon icon-xxs text-picton-blue mdi mdi-clock"></span>
-                                <time class="text-dark" datetime="2016-01-01">9:00 AM</time>
-                            </div>
-                            <div class="post-title">
-                                <h6 class="text-regular">
-                                    <a href="#">Family breakfast</a>
-                                </h6>
-                            </div>
-                        </article>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-                    </div>
                         <div class="shell">
                             <div class="range range-xs-center">
                                 <div class="cell-sm-8 cell-md-7 cell-lg-8">
                                     <div class="range">
-    
+
                                         <div class="cell-lg-6">
                                             <div class="form-group">
                                                 <label class="form-label form-label-outside" for="make-appointment-name">Ime:</label>
@@ -425,7 +319,7 @@
                                         <div class="cell-lg-6 offset-top-20">
                                             <div class="form-group">
                                                 <label class="form-label form-label-outside" for="make-appointment-name">Regija delovanja</label>
-                                                <select name="KRAJ_DELOVANJA" class="form-control select-filter" data-minimum-results-for-search="Infinity" data-constraints="@Required @Selected">
+                                                <select name="KRAJ_DELOVANJA" class="form-control select-filter" data-constraints="@Required @Selected">
                                                     <option value="" selected="selected"></option>
                                                     <option>Gorenjska</option>
                                                     <option>Goriška</option>
@@ -443,17 +337,21 @@
                                         </div>
                                         <div class="cell-lg-6 offset-top-20 ">
                                             <div class="form-group">
-                                            <input type="checkbox" name="register" value="register" required> Strinjam se s splošnimi
-                                             <a href="pogoji.php" style="color: #dd6a2c" > pogoji poslovanja in obveščanja!</a><br><br>
+                                                <input type="checkbox" name="register" value="register" data-constraints="@Required"> Strinjam se s splošnimi
+                                                <a href="pogoji.php" style="color: #dd6a2c"> pogoji poslovanja in obveščanja!</a>
+                                                <br>
+                                                <br>
                                             </div>
                                         </div>
                                         <div class="cell-lg-6 offset-top-20 ">
                                             <div class="form-group">
-                                            <input type="checkbox" name="register" value="register" required> Strinjam se s splošnimi
-                                             <a href="pogoji.php" style="color: #dd6a2c" > pogoji poslovanja in obveščanja!</a><br><br>
+                                                <input type="checkbox" name="register" value="register" data-constraints="@Required"> Strinjam se s splošnimi
+                                                <a href="pogoji.php" style="color: #dd6a2c"> pogoji poslovanja in obveščanja!</a>
+                                                <br>
+                                                <br>
                                             </div>
                                         </div>
-    
+
                                     </div>
                                     <div class="text-center text-lg-left offset-top-30">
                                         <button class="btn btn-primary" id="button_send_data" type="submit">Prijava na tečaj</button>
@@ -461,22 +359,45 @@
                                 </div>
                             </div>
                         </div>
-                </div>
-            </form>
-            <div class="shell offset-top-66 text-left">
-                <div class="code-counter-type-3"></div>
-        </section>
-    </main>
+                    </div>
+                </form>
+                <div class="shell offset-top-66 text-left">
+                    <div class="code-counter-type-3"></div>
+            </section>
+        </main>
         <!-- Page Footers-->
         <?php include("footer.html");?>
+        </div>
+        <!-- JavaScript-->
+
+
+        <script src="js/core.min.js"></script>
+        <script src="js/script.js"></script>
+        
+    <script>
+        $('#button_send_data').on('click', function () {
+
+            // create variables
+            var select1 = $('#prijava_okp_S');
+            var select2 = $('#prijava_okp_G');
+            var select3 = $('#prijava_okp_K');
+            var select4 = $('#prijava_ops');
+            var select5 = $('#prijava_ods');
+
+            // validate form
+            if (select1.val() == '' && select2.val() == '' && select3.val() == '' && select4.val() == '' && select5.val() == '') {
+
+                alert('Izbrati morate vsaj en tečaj!');
+                return false; // do not submit
+
+            }
+            else {
+                return true; // submit form
+            }
+
+        }); </script>
+
     </div>
-    <!-- JavaScript-->
-   
-   
-<script src="js/core.min.js"></script>
-<script src="js/script.js"></script>
-
-
 </body>
 
 </html>

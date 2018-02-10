@@ -14,53 +14,67 @@ $update_telefon=$_POST['telefon'];
 $update_izobrazba=$_POST['izobrazba'];
 $update_kraj=$_POST['kraj'];
 
-$update_okp=$_POST['prijava_okp'];
+$update_okp_S=$_POST['prijava_okp_S'];
+$update_okp_G=$_POST['prijava_okp_G'];
+$update_okp_K=$_POST['prijava_okp_K'];
 $update_ops=$_POST['prijava_ops'];
 $update_ods=$_POST['prijava_ods'];
 
 
-$sql = "INSERT INTO registrirani_clani(IME,PRIIMEK,EMAIL,TELEFON,KRAJ_DELOVANJA, STATUS_CLANA, OKP, OPS, ODS)
-VALUES ('$update_ime','$update_priimek','$update_email','$update_telefon','$update_kraj','$update_izobrazba', '$update_okp', '$update_ops','$update_ods' )";
+$sql = "INSERT INTO registrirani_clani(IME,PRIIMEK,EMAIL,TELEFON,KRAJ_DELOVANJA, STATUS_CLANA, OKP_S, OKP_G, OKP_K, OPS, ODS)
+VALUES ('$update_ime','$update_priimek','$update_email','$update_telefon','$update_kraj','$update_izobrazba', '$update_okp_S','$update_okp_G','$update_okp_K', '$update_ops','$update_ods' )";
 mysqli_query($db, $sql);
 
-$result1 = mysqli_query($db,"SELECT DATUM, HOUR FROM razpisani_tecaji WHERE ID_TECAJA = '$update_okp'");
+$result1 = mysqli_query($db,"SELECT DATUM, HOUR FROM razpisani_tecaji WHERE ID_TECAJA = '$update_okp_S'");
 while($row = mysqli_fetch_array($result1)){
 $date1 = $row['DATUM'];
     $hour1 = $row['HOUR'];
 }
 
-$result2 = mysqli_query($db,"SELECT DATUM, HOUR FROM razpisani_tecaji WHERE ID_TECAJA = '$update_ops'");
+$result2 = mysqli_query($db,"SELECT DATUM, HOUR FROM razpisani_tecaji WHERE ID_TECAJA = '$update_okp_G'");
 while($row = mysqli_fetch_array($result2)){
 $date2 = $row['DATUM'];
     $hour2 = $row['HOUR'];
 }
-
-$result3 = mysqli_query($db,"SELECT DATUM, HOUR FROM razpisani_tecaji WHERE ID_TECAJA = '$update_ods'");
+$result3 = mysqli_query($db,"SELECT DATUM, HOUR FROM razpisani_tecaji WHERE ID_TECAJA = '$update_okp_K'");
 while($row = mysqli_fetch_array($result3)){
 $date3 = $row['DATUM'];
     $hour3 = $row['HOUR'];
 }
 
-if((!empty($update_okp)) and (!empty($update_ops)) and (!empty($update_ods))) {
-    $changableMessage  = "Online klinični primeri: " . $date1 ." " .$hour1. "\r\n" . "Online priprave na strokovni izpit: " . $date2 ." " .$hour2. "\r\n" . "Online delavnice za študente medicine: " . $date3 ." " .$hour3. "\r\n";
+$result4 = mysqli_query($db,"SELECT DATUM, HOUR FROM razpisani_tecaji WHERE ID_TECAJA = '$update_ops'");
+while($row = mysqli_fetch_array($result4)){
+$date4 = $row['DATUM'];
+    $hour4 = $row['HOUR'];
 }
-elseif((!empty($update_okp)) and (!empty($update_ops))) {
-    $changableMessage  = "Online klinični primeri: " . $date1 ." " .$hour1. "\r\n" . "Online priprave na strokovni izpit: " . $date2 ." " .$hour2. "\r\n";
+
+$result5 = mysqli_query($db,"SELECT DATUM, HOUR FROM razpisani_tecaji WHERE ID_TECAJA = '$update_ods'");
+while($row = mysqli_fetch_array($result5)){
+$date5 = $row['DATUM'];
+    $hour5 = $row['HOUR'];
 }
-elseif((!empty($update_okp))  and (!empty($update_ods))) {
-    $changableMessage  = "Online klinični primeri: " . $date1 ." " .$hour1. "\r\n" . "Online delavnice za študente medicine: " . $date3 ." " .$hour3. "\r\n";
+//uredi še tole!! 31 kombinacij
+if((!empty($update_okp_S)) and (!empty($update_ops)) and (!empty($update_ods))) {
+    $changableMessage  = "Online klinični primeri: " . $date1 ." " .$hour1. "\r\n" . "Online priprave na strokovni izpit: " . $date4 ." " .$hour4. "\r\n" . "Online delavnice za študente medicine: " . $date5 ." " .$hour5. "\r\n";
+}
+
+elseif((!empty($update_okp_S)) and (!empty($update_ops))) {
+    $changableMessage  = "Online klinični primeri: " . $date1 ." " .$hour1. "\r\n" . "Online priprave na strokovni izpit: " . $date4 ." " .$hour4. "\r\n";
+}
+elseif((!empty($update_okp_S))  and (!empty($update_ods))) {
+    $changableMessage  = "Online klinični primeri: " . $date1 ." " .$hour1. "\r\n" . "Online delavnice za študente medicine: " . $date5 ." " .$hour5. "\r\n";
 }
 elseif((!empty($update_ops)) and (!empty($update_ods))) {
-    $changableMessage  = "Online priprave na strokovni izpit: " . $date2 ." " .$hour2. "\r\n" . "Online delavnice za študente medicine: " . $date3 ." " .$hour3. "\r\n";
+    $changableMessage  = "Online priprave na strokovni izpit: " . $date4 ." " .$hour4. "\r\n" . "Online delavnice za študente medicine: " . $date5 ." " .$hour5. "\r\n";
 }
-elseif(!empty($update_okp)) {
+elseif(!empty($update_okp_S)) {
     $changableMessage  = "Online klinični primeri: " . $date1 ." " .$hour1. "\r\n";
 }
 elseif(!empty($update_ops)) {
-    $changableMessage  = "Online priprave na strokovni izpit: " . $date2 ." " .$hour2. "\r\n";
+    $changableMessage  = "Online priprave na strokovni izpit: " . $date4 ." " .$hour4. "\r\n";
 }
 elseif(!empty($update_ods)) {
-    $changableMessage  = "Online delavnice za študente medicine: " . $date3 ." " .$hour3. "\r\n";
+    $changableMessage  = "Online delavnice za študente medicine: " . $date5 ." " .$hour5. "\r\n";
 }
 
 $to      = 'info@viverius-education.com,rok.ivartnik@viverius.com,pantner.neli@viverius.com';
