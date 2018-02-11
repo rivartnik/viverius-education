@@ -53,8 +53,9 @@ while($row = mysqli_fetch_array($result5)){
 $date5 = $row['DATUM'];
     $hour5 = $row['HOUR'];
 }
+
 //uredi še tole!! 31 kombinacij
-if((!empty($update_okp_S)) and (!empty($update_ops)) and (!empty($update_ods))) {
+/*<if((!empty($update_okp_S)) and (!empty($update_ops)) and (!empty($update_ods))) {
     $changableMessage  = "Online klinični primeri: " . $date1 ." " .$hour1. "\r\n" . "Online priprave na strokovni izpit: " . $date4 ." " .$hour4. "\r\n" . "Online delavnice za študente medicine: " . $date5 ." " .$hour5. "\r\n";
 }
 
@@ -64,17 +65,39 @@ elseif((!empty($update_okp_S)) and (!empty($update_ops))) {
 elseif((!empty($update_okp_S))  and (!empty($update_ods))) {
     $changableMessage  = "Online klinični primeri: " . $date1 ." " .$hour1. "\r\n" . "Online delavnice za študente medicine: " . $date5 ." " .$hour5. "\r\n";
 }
+
 elseif((!empty($update_ops)) and (!empty($update_ods))) {
     $changableMessage  = "Online priprave na strokovni izpit: " . $date4 ." " .$hour4. "\r\n" . "Online delavnice za študente medicine: " . $date5 ." " .$hour5. "\r\n";
+}*/
+if(!empty($update_okp_S)) {
+    $changableMessage1  = "Online klinični primeri - splošne teme: " . $date1 ." " .$hour1. "\r\n";
 }
-elseif(!empty($update_okp_S)) {
-    $changableMessage  = "Online klinični primeri: " . $date1 ." " .$hour1. "\r\n";
+else {
+    $changableMessage1  = "";
 }
-elseif(!empty($update_ops)) {
-    $changableMessage  = "Online priprave na strokovni izpit: " . $date4 ." " .$hour4. "\r\n";
+if(!empty($update_okp_G)) {
+    $changableMessage2  = "Online klinični primeri - gibala in kronična bolečina: " . $date2 ." " .$hour2. "\r\n";
 }
-elseif(!empty($update_ods)) {
-    $changableMessage  = "Online delavnice za študente medicine: " . $date5 ." " .$hour5. "\r\n";
+else {
+    $changableMessage2  = "";
+}
+if(!empty($update_okp_K)) {
+    $changableMessage3  = "Online klinični primeri - kardiovaskularni sistem: " . $date3 ." " .$hour3. "\r\n";
+}
+else {
+    $changableMessage3  = "";
+}
+if(!empty($update_ops)) {
+    $changableMessage4  = "Online priprave na strokovni izpit: " . $date4 ." " .$hour4. "\r\n";
+}
+else {
+    $changableMessage4  = "";
+}
+if(!empty($update_ods)) {
+    $changableMessage5  = "Online delavnice za študente medicine: " . $date5 ." " .$hour5. "\r\n";
+}
+else {
+    $changableMessage5  = "";
 }
 
 $to      = 'info@viverius-education.com,rok.ivartnik@viverius.com,pantner.neli@viverius.com';
@@ -83,7 +106,7 @@ $headers = "From: {$update_email} <{$update_email}>\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
 $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
 $message = '<html><head>';
-$message .= "<p>Prijavljam se na tečaj: </p><p>$changableMessage</p>";
+$message .= "<p>Prijavljam se na tečaj: </p><p>$changableMessage1</p><p>$changableMessage2</p><p>$changableMessage3</p><p>$changableMessage4</p><p>$changableMessage5</p>";
 $message .= '</head><body>';
 $message .= '<table table rules="all" style="border-color: #666;" cellpadding="5">';
 $message .= "<tr style='background: #eee;'><th>IME</th><th>PRIIMEK</th><th>EMAIL</th><th>TELEFON</th><th>IZOBRAZBA</th><th>KRAJ DELOVANJA</th></tr>";
@@ -97,8 +120,12 @@ if(mail($to, $subject, $message, $headers)){
   $subject = 'Potrdilo o prijavi na tečaj';
   $headers = "From: Viverius-education\r\n";
   $message  = "--------------------------------------------------- \r\n";
-  $message  .= "Spoštovani, uspešno ste se prijavili na naslednje tečaje: \r\n";
-  $message  .=  $changableMessage . "\r\n";
+  $message  .= "Spoštovani, uspešno ste se prijavili na naslednje tečaj/e: \r\n";
+  $message  .=  $changableMessage1 . "\r\n";
+  $message  .=  $changableMessage2 . "\r\n";
+  $message  .=  $changableMessage3 . "\r\n";
+  $message  .=  $changableMessage4 . "\r\n";
+  $message  .=  $changableMessage5 . "\r\n";
   $message  .= "--------------------------------------------------- \r\n";
   $message  .= "Podatki o udeležencu: \r\n";
   $message  .=  $update_ime . ", " . $update_priimek . ", " . $update_email . ", ". $update_telefon .", ". $update_izobrazba .", ". $update_kraj . "\r\n";

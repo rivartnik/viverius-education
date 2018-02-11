@@ -20,7 +20,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION["loggedIn"] = true;
     $_SESSION["up_name"] = $myusername;
 
-    header('Location: dodajanje_termina.php'); exit;
+    header('Location: index.php'); exit;
 
   } else {
     echo 'Invalid password.';

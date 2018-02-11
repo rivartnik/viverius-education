@@ -5,7 +5,7 @@ if($_SESSION["loggedIn"] != true) {
     echo("Access denied!");
     exit();
 }
-//echo("Enter my lord!");
+echo("Access granted!");
 ?>
 <html>
 
