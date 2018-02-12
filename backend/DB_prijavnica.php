@@ -2,10 +2,10 @@
    include("../config.php");
    session_start();
    
-    error_reporting(E_ALL);
+   // error_reporting(E_ALL);
  // I don't know if you need to wrap the 1 inside of double quotes.
- ini_set("display_startup_errors",1);
- ini_set("display_errors",1);
+ //ini_set("display_startup_errors",1);
+ //ini_set("display_errors",1);
 
 $update_ime=$_POST['ime'];
 $update_priimek=$_POST['priimek'];
@@ -13,7 +13,6 @@ $update_email=$_POST['email'];
 $update_telefon=$_POST['telefon'];
 $update_izobrazba=$_POST['izobrazba'];
 $update_kraj=$_POST['kraj'];
-
 $update_okp_S=$_POST['prijava_okp_S'];
 $update_okp_G=$_POST['prijava_okp_G'];
 $update_okp_K=$_POST['prijava_okp_K'];
@@ -25,30 +24,29 @@ $sql = "INSERT INTO registrirani_clani(IME,PRIIMEK,EMAIL,TELEFON,KRAJ_DELOVANJA,
 VALUES ('$update_ime','$update_priimek','$update_email','$update_telefon','$update_kraj','$update_izobrazba', '$update_okp_S','$update_okp_G','$update_okp_K', '$update_ops','$update_ods' )";
 mysqli_query($db, $sql);
 
-$result1 = mysqli_query($db,"SELECT DATUM, HOUR FROM razpisani_tecaji WHERE ID_TECAJA = '$update_okp_S'");
+$result1 = mysqli_query($db,"SELECT DATUM, HOUR FROM razpisani_tecaji WHERE id = '$update_okp_S'");
 while($row = mysqli_fetch_array($result1)){
 $date1 = $row['DATUM'];
     $hour1 = $row['HOUR'];
 }
-
-$result2 = mysqli_query($db,"SELECT DATUM, HOUR FROM razpisani_tecaji WHERE ID_TECAJA = '$update_okp_G'");
+$result2 = mysqli_query($db,"SELECT DATUM, HOUR FROM razpisani_tecaji WHERE id = '$update_okp_G'");
 while($row = mysqli_fetch_array($result2)){
 $date2 = $row['DATUM'];
     $hour2 = $row['HOUR'];
 }
-$result3 = mysqli_query($db,"SELECT DATUM, HOUR FROM razpisani_tecaji WHERE ID_TECAJA = '$update_okp_K'");
+$result3 = mysqli_query($db,"SELECT DATUM, HOUR FROM razpisani_tecaji WHERE id = '$update_okp_K'");
 while($row = mysqli_fetch_array($result3)){
 $date3 = $row['DATUM'];
     $hour3 = $row['HOUR'];
 }
 
-$result4 = mysqli_query($db,"SELECT DATUM, HOUR FROM razpisani_tecaji WHERE ID_TECAJA = '$update_ops'");
+$result4 = mysqli_query($db,"SELECT DATUM, HOUR FROM razpisani_tecaji WHERE id = '$update_ops'");
 while($row = mysqli_fetch_array($result4)){
 $date4 = $row['DATUM'];
     $hour4 = $row['HOUR'];
 }
 
-$result5 = mysqli_query($db,"SELECT DATUM, HOUR FROM razpisani_tecaji WHERE ID_TECAJA = '$update_ods'");
+$result5 = mysqli_query($db,"SELECT DATUM, HOUR FROM razpisani_tecaji WHERE id = '$update_ods'");
 while($row = mysqli_fetch_array($result5)){
 $date5 = $row['DATUM'];
     $hour5 = $row['HOUR'];
@@ -133,9 +131,9 @@ if(mail($to, $subject, $message, $headers)){
   $message  .= "V kolikor so podatki napačni ali se izobraževanja ne boste mogli udeležiti nam prosim odgovorite na ta mail. \r\n";
   $message  .= "Hvala za zaupanje! \r\n";
   mail($to, $subject, $message, $headers);
- header('Location: emailSuccesfull.php'); exit;
+ header('Location: ../emailSuccesfull.php'); exit;
 }else{
- header('Location: emailFailed.php'); exit;
+ header('Location: ../emailFailed.php'); exit;
 }
 
 ?>

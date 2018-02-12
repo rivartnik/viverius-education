@@ -116,7 +116,7 @@
                         </div>
                     </div>
                 </div>
-                <form class="rd-mailform text-left" method="post" action="backend/DB_prijavnica.php">
+                <form class="text-left" method="post" action="backend/DB_prijavnica.php">
                     <div class="shell">
                         <hr class="divider divider-sm bg-mantis">
                         <div class="range range-sm-middle range-sm-center">
@@ -125,7 +125,7 @@
                                     <div class="form-group">
                                         <div style="display: block" id="selectOKP_S">
                                             <select name="prijava_okp_S"  class="form-control select-filter"  id="prijava_okp_S">
-                                                <option value="" selected="selected">OKP - splošne teme </option>
+                                                <option value="0" selected="selected">OKP - splošne teme </option>
                                                 <?php
                                                 include("config.php");
                                                 session_start();
@@ -145,7 +145,7 @@
                                         </div>
                                         <div style="display: none" id="selectOKP_G">
                                             <select name="prijava_okp_G" class="form-control select-filter" id="prijava_okp_G">
-                                                <option value="" selected="selected">OKP - gibala in kronična bolečina</option>
+                                                <option value="0" selected="selected">OKP - gibala in kronična bolečina</option>
                                                 <?php
                                                   include("config.php");
                                                   session_start();
@@ -165,7 +165,7 @@
                                         </div>
                                         <div style="display: none" id="selectOKP_K">
                                             <select name="prijava_okp_K" class="form-control select-filter" id="prijava_okp_K">
-                                                <option value="" selected="selected">OKP - kardiovaskularni sistem</option>
+                                                <option value="0" selected="selected">OKP - kardiovaskularni sistem</option>
                                                 <?php
                                                   include("config.php");
                                                   session_start();
@@ -185,7 +185,7 @@
                                         </div>
                                         <div style="display: none" id="selectOPS">
                                             <select name="prijava_ops" class="form-control select-filter" id="prijava_ops">
-                                                <option value="" selected="selected">Online priprave na strokovni izpit </option>
+                                                <option value="0" selected="selected">Online priprave na strokovni izpit </option>
                                                 <?php
                                               include("config.php");
                                               session_start();
@@ -205,7 +205,7 @@
                                         </div>
                                         <div style="display: none" id="selectODS">
                                             <select name="prijava_ods" class="form-control select-filter" id="prijava_ods">
-                                                <option value="" selected="selected">Online delavnice za študente medicine</option>
+                                                <option value="0" selected="selected">Online delavnice za študente medicine</option>
                                                 <?php
                                                   include("config.php");
                                                   session_start();
@@ -283,25 +283,25 @@
                                         <div class="cell-lg-6">
                                             <div class="form-group">
                                                 <label class="form-label form-label-outside" for="make-appointment-name">Ime:</label>
-                                                <input class="form-control" id="make-appointment-name" type="text" name="NAME" data-constraints="@Required">
+                                                <input class="form-control" id="make-appointment-name" type="text" name="ime" required>
                                             </div>
                                         </div>
                                         <div class="cell-lg-6">
                                             <div class="form-group">
                                                 <label class="form-label form-label-outside" for="make-appointment-surname">Priimek:</label>
-                                                <input class="form-control" id="make-appointment-surname" type="text" name="SURNAME" data-constraints="@Required">
+                                                <input class="form-control" id="make-appointment-surname" type="text" name="priimek" required>
                                             </div>
                                         </div>
                                         <div class="cell-lg-6 offset-top-20 ">
                                             <div class="form-group">
                                                 <label class="form-label form-label-outside" for="make-appointment-email">Email:</label>
-                                                <input class="form-control" id="make-appointment-email" type="text" name="EMAIL" data-constraints="@Required @Email">
+                                                <input class="form-control" id="make-appointment-email" type="text" name="email" required>
                                             </div>
                                         </div>
                                         <div class="cell-lg-6 offset-top-20">
                                             <div class="form-group">
                                                 <label class="form-label form-label-outside" for="make-appointment-name">Status / izobrazba</label>
-                                                <select name="EDUCATION" class="form-control select-filter" data-minimum-results-for-search="Infinity" data-constraints="@Required @Selected">
+                                                <select name="izobrazba" class="form-control select-filter" required>
                                                     <option value="" selected="selected"></option>
                                                     <option>Študent</option>
                                                     <option>Pripravnik</option>
@@ -313,13 +313,13 @@
                                         <div class="cell-lg-6 offset-top-20 ">
                                             <div class="form-group">
                                                 <label class="form-label form-label-outside" for="make-appointment-phone">Telefon:</label>
-                                                <input class="form-control" id="make-appointment-phone" type="text" name="PHONE" data-constraints="@Required">
+                                                <input class="form-control" id="make-appointment-phone" type="tel" name="telefon" required> <!-- če kaj ne dela je tu kriv type-->
                                             </div>
                                         </div>
                                         <div class="cell-lg-6 offset-top-20">
                                             <div class="form-group">
                                                 <label class="form-label form-label-outside" for="make-appointment-name">Regija delovanja</label>
-                                                <select name="KRAJ_DELOVANJA" class="form-control select-filter" data-constraints="@Required @Selected">
+                                                <select name="kraj" class="form-control select-filter" required>
                                                     <option value="" selected="selected"></option>
                                                     <option>Gorenjska</option>
                                                     <option>Goriška</option>
@@ -337,7 +337,7 @@
                                         </div>
                                         <div class="cell-lg-6 offset-top-20 ">
                                             <div class="form-group">
-                                                <input type="checkbox" name="register" value="register" data-constraints="@Required"> Strinjam se s splošnimi
+                                                <input type="checkbox" required> Strinjam se s splošnimi
                                                 <a href="pogoji.php" style="color: #dd6a2c"> pogoji poslovanja in obveščanja!</a>
                                                 <br>
                                                 <br>
@@ -345,7 +345,7 @@
                                         </div>
                                         <div class="cell-lg-6 offset-top-20 ">
                                             <div class="form-group">
-                                                <input type="checkbox" name="register" value="register" data-constraints="@Required"> Strinjam se s splošnimi
+                                                <input type="checkbox" required> Strinjam se s splošnimi
                                                 <a href="pogoji.php" style="color: #dd6a2c"> pogoji poslovanja in obveščanja!</a>
                                                 <br>
                                                 <br>
